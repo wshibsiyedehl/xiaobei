@@ -1,0 +1,911 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用"; Text ="洪脚本"; Duration = 10; })
+
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
+
+local Window = OrionLib:MakeWindow({Name = "洪脚本2.0", HidePremium = false, SaveConfig = true,IntroText = "洪脚本2.0", ConfigFolder = "洪脚本2.0"})
+
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用"; Text ="2.0版"; Duration = 10; })
+
+local Tab = Window:MakeTab({
+
+	Name = "须知",	Icon = "rbxassetid://10483855823",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "本脚本为免费"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "圈钱的别来啦"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "如果你要是被圈了"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "不要难过，作者也被圈过"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "作者只是个搬运的，偶然有自己作的"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "想要源码就直接拿吧"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "我不会说什么的…"
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "通用",
+
+	Icon = "rbxassetid://10483855823",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddToggle({
+
+	Name = "穿墙",
+
+	Default = false,
+
+	Callback = function(Value)
+
+	local Workspace = game:GetService("Workspace")
+
+local Players = game:GetService("Players")
+
+local Clipon = true
+
+Stepped = game:GetService("RunService").Stepped:Connect(function()
+
+	if not Clipon == false then
+
+		for a, b in pairs(Workspace:GetChildren()) do
+
+        if b.Name == Players.LocalPlayer.Name then
+
+        for i, v in pairs(Workspace[Players.LocalPlayer.Name]:GetChildren()) do
+
+        if v:IsA("BasePart") then
+
+        v.CanCollide = false
+
+        end end end end
+
+	else
+
+		Stepped:Disconnect()
+
+	end
+
+end)
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "透视",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "飞行V3（中文）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://pastebin.com/raw/U27yQRxS'))()
+
+  	end    
+
+})
+
+Tab:AddSlider({
+
+	Name = "速度",
+
+	Min = 16,
+
+	Max = 200,
+
+	Default = 16,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "数据",
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+
+	end    
+
+})
+
+Tab:AddTextbox({
+
+	Name = "移动速度设置（超过22就回弹喽）",
+
+	Default = "请输入",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "SA工具",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/StandAwekening.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "阿尔宙斯V3（UI）",
+
+	Callback = function()
+
+     loadstring(game: HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20X%20V3"))() 
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "甩人",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/HAAY2rhe"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "键盘（碍事）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "脚本类",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "来自门的脚本"
+
+})
+
+Tab:AddButton({
+
+	Name = "焯坤好用",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://pastebin.com/raw/R8QMbhzv'))()
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "POPDOORS（有点问题）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/poopdoors_edited.lua"),true))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DX（第三版）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/DXuwu/test-lol/main/YO.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "变身(有些问题)",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAccelerator/Public-Scripts/main/Morphing/MorphScript.lua"))();
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "微山DOORS最新",
+
+	Callback = function()
+
+     --微山doors 2.3.2(愚人节快乐)
+
+loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\117\72\72\112\56\102\122\83"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS神级难度（配置差不要玩）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/Ukazix/impossible-mode/main/Protected_79.lua.txt'))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS(港夜)",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/6kfed0tP"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS(高质量)",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/Darkrai-X/main/Games/Doors"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS猫猫制作",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://pastebin.com/raw/m1mcGCzi'))()
+
+   	end
+
+})
+
+Tab:AddButton({
+
+	Name = "未测",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://github.com/DocYogurt/free/raw/main/long"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "某云汉化版",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoYunCN/EntitySpawner/main/doors(orionlib).lua"))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "Script脚本",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "自动的ROOMS",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/r0vbVz9T"))()
+
+  	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "来油管的极速脚本"
+
+})
+
+Tab:AddButton({
+
+	Name = "龙叔汉化",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/n1kAB2iC"))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "极速自动（V2)",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/BoaHacker/ROBLOX/main/cheat', true))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "ovo",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\98\111\121\115\99\112\47\98\101\116\97\47\109\97\105\110\47\37\69\57\37\56\48\37\57\70\37\69\53\37\66\65\37\65\54\37\69\55\37\56\50\37\66\56\37\69\56\37\66\53\37\66\55\46\108\117\97'))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "基础版",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/cwCdNqds"))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "整合脚本",
+
+	Callback = function()
+
+     loadstring(Game:HttpGet("https://pastebin.com/raw/0A4J7V8M"))()
+
+   	end
+
+})
+
+Tab:AddButton({
+
+	Name = "自动收集宝珠",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptAttack/CRM/main/Legends_of_Speed.lua"))()
+
+   	end
+
+})
+
+Tab:AddButton({
+
+	Name = "自制汉化",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/La4cH78Z"))()
+
+  	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "力量传奇的脚本"
+
+})
+
+Tab:AddButton({
+
+	Name = "新版油管搬的",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/jynzl/main/main/Musclas%20Legenos.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "力量传奇.gui",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/jynzl/main/main/Musclas%20Legenos.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "新版油管搬的",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/jynzl/main/main/Musclas%20Legenos.lua"))()
+
+	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "造船寻宝的脚本"
+
+})
+
+Tab:AddButton({
+
+	Name = "油管搬",
+
+	Callback = function()
+
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/urmomjklol69/GoldFarmBabft/main/GoldFarm.lua'),true))()
+
+	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "没了，这个系列以后再更新"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "自然灾害的脚本"
+
+})
+
+Tab:AddButton({
+
+	Name = "朋友送的",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiao122231/xiao122231/main/%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "还是油管",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main"))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "忍者传奇",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddButton({
+
+	Name = "金月推荐",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/harisiskandar178/5repo/main/script4.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "毛笔推荐",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/1"))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "DOORS",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "DOORS玩家功能"
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS玩家功能整合",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/xjR6HpZV"))()
+
+  	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "DOORS实体UI局内调试"
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS实体UI局内调试",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/MKC2Kwky"))()
+
+  	end
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "DOORS物品"
+
+})
+
+Tab:AddButton({
+
+	Name = "DOORS物品",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/kNj8LuRT"))()
+
+   	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "极速传奇",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddButton({
+
+	Name = "开启卡宠",
+
+	Callback = function()
+
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/PSXhuge/1/114514/%E6%9E%81%E9%80%9F%E4%BC%A0%E5%A5%87"))()		
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "自动重生和自动刷等级",
+
+	Callback = function()
+
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/PSXhuge/1/114514/%E6%9E%81%E9%80%9F%E4%BC%A0%E5%A5%87%E5%8A%9F%E8%83%BD"))()        
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "反挂机【防检测】",
+
+	Callback = function()
+
+		print("Anti Afk On")
+
+		local vu = game:GetService("VirtualUser")
+
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		   wait(1)
+
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		end)
+
+  	end    
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "传送岛屿"
+
+})
+
+Tab:AddButton({
+
+	Name = "返还出生岛",
+
+	Callback = function()
+
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9682.98828125, 58.87917709350586, 3099.033935546875)      
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "白雪城",
+
+	Callback = function()
+
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9676.138671875, 58.87917709350586, 3782.69384765625)   
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "熔岩城",
+
+	Callback = function()
+
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11054.96875, 216.83917236328125, 4898.62841796875)       
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "传奇公路",
+
+	Callback = function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-13098.87109375, 216.83917236328125, 5907.6279296875)    
+
+  	end    
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "造船寻宝",
+
+	Icon = "rbxassetid://10483855823",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddButton({
+
+	Name = "自动刷金条",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/Lyy77rnr",true))()
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "工具包（可破别人团队模式空气墙）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/BTools.txt"))()	
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "飞行装备（可控制物体）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/PSXhuge/1/main/feixing"))()		
+
+  	end
+
+})
+
+Tab:AddButton({
+
+	Name = "防止掉线（反挂机）",
+
+	Callback = function()
+
+	print("Anti Afk On")
+
+		local vu = game:GetService("VirtualUser")
+
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		   wait(1)
+
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		end)
+
+  	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "自然灾害",
+
+	Icon = "rbxassetid://10483855823",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddButton({
+
+	Name = "刷气球",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/sj0xtuTN"))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "信息",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "作者:洪 or 虹龙"
+
+})
+
+Tab:AddButton({
+
+	Name = "复制作者QQ",
+
+	Callback = function()
+
+     setclipboard("我没qq呀")
+
+  	end
+
+})
