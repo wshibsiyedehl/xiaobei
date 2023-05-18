@@ -1,0 +1,1073 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "小北制作必属精品"; Text ="小北"; Duration = 10; })
+
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/xLRUSiKx'))()
+
+local Window = OrionLib:MakeWindow({Name = "DOORS小北", HidePremium = false, SaveConfig = true,IntroText = "小北", ConfigFolder = "小北"})
+
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用"; Text ="1.0"; Duration = 10; })
+
+local Tab = Window:MakeTab({
+
+	Name = "帮助",
+
+	Icon = "rbxassetid://10483855823",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "海啸=rush"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "绿色海啸=AMBUSH"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "无突脸=秒杀类实体击杀动画消失"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "自动躲避=自动躲RUSH OR AMBUSH"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "事件预测=房间刷新时弹窗"
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "作者很感激你能看到这里"
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "Doors玩家功能",
+
+	Icon = "rbxassetid://10483855826",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddLabel("玩家功能：") 
+
+Tab:AddButton({
+
+	Name = "飞行PC端（搭配键盘）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "电脑键盘（搭配PC飞行）",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "拆掉墙壁",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/YCGN6bnD"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "拆除假的门",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/ZcNPGJfQ"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "删除门的框架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/4m2Nw1Kr"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "走得飞快",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/rqA4YPzi", true))() 
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "走的较慢",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/HFLkawSE", true))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "全亮",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://pastebin.com/raw/4LDKiJ5a"))()
+
+	end
+
+})
+
+Tab:AddToggle({
+
+	Name = "无火",
+
+	Default = false,
+
+    Flag = "NoSeek",
+
+    Save = true
+
+})
+
+Tab:AddToggle({
+
+	Name = "立即互动",
+
+	Default = false,
+
+    Flag = "InstantToggle",
+
+    Save = true
+
+})
+
+Tab:AddButton({
+
+	Name = "无突脸",
+
+	Callback = function()
+
+        pcall(function()
+
+            game:GetService("ReplicatedStorage").Bricks.Jumpscare:Destroy()
+
+        end)
+
+  	end    
+
+})
+
+Tab:AddToggle({
+
+	Name = "自动躲避海啸/绿色海啸",
+
+	Default = false,
+
+    Flag = "AvoidRushToggle",
+
+    Save = true
+
+})
+
+Tab:AddToggle({
+
+	Name = "无恐惧",
+
+	Default = false,
+
+    Flag = "ScreechToggle",
+
+    Save = true
+
+})
+
+Tab:AddToggle({
+
+	Name = "心跳游戏不会输",
+
+	Default = false,
+
+    Flag = "HeartbeatWin",
+
+    Save = true
+
+})
+
+Tab:AddToggle({
+
+	Name = "预测追逐战",
+
+	Default = false,
+
+    Flag = "PredictToggle" ,
+
+    Save = true
+
+})
+
+Tab:AddToggle({
+
+	Name = "房间刷新时通知",
+
+	Default = false,
+
+    Flag = "MobToggle" ,
+
+    Save = true
+
+})
+
+Tab:AddButton({
+
+	Name = "完成断路器盒子",
+
+	Callback = function()
+
+        game:GetService("ReplicatedStorage").Bricks.EBF:FireServer()
+
+  	end    
+
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+
+    pcall(function()
+
+        if game.Players.LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 then
+
+            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * TargetWalkspeed/50)
+
+        end
+
+    end)
+
+end)
+
+game:GetService("Workspace").CurrentRooms.DescendantAdded:Connect(function(descendant)
+
+    if OrionLib.Flags["NoSeek"].Value == true and descendant.Name == ("Seek_Arm" or "ChandelierObstruction") then
+
+        task.spawn(function()
+
+            wait()
+
+            descendant:Destroy()
+
+        end)
+
+    end
+
+end)
+
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+
+    if OrionLib.Flags["InstantToggle"].Value == true then
+
+        fireproximityprompt(prompt)
+
+    end
+
+end)
+
+local old
+
+old = hookmetamethod(game,"__namecall",newcclosure(function(self,...)
+
+    local args = {...}
+
+    local method = getnamecallmethod()
+
+    
+
+    if tostring(self) == 'Screech' and method == "FireServer" and OrionLib.Flags["ScreechToggle"].Value == true then
+
+        args[1] = true
+
+        return old(self,unpack(args))
+
+    end
+
+    if tostring(self) == 'ClutchHeartbeat' and method == "FireServer" and OrionLib.Flags["HeartbeatWin"].Value == true then
+
+        args[2] = true
+
+        return old(self,unpack(args))
+
+    end
+
+    
+
+    return old(self,...)
+
+end))
+
+workspace.CurrentCamera.ChildAdded:Connect(function(child)
+
+    if child.Name == "Screech" and OrionLib.Flags["ScreechToggle"].Value == true then
+
+        child:Destroy()
+
+    end
+
+end)
+
+local NotificationCoroutine = coroutine.create(function()
+
+    LatestRoom.Changed:Connect(function()
+
+        if OrionLib.Flags["PredictToggle"].Value == true then
+
+            local n = ChaseStart.Value - LatestRoom.Value
+
+            if 0 < n and n < 4 then
+
+                OrionLib:MakeNotification({
+
+                    Name = "警告",
+
+                    Content = "还有" .. tostring(n) .. "房间刷新实体",
+
+                    Time = 5
+
+                })
+
+            end
+
+        end
+
+        if OrionLib.Flags["BookToggle"].Value == true then
+
+            if LatestRoom.Value == 50 then
+
+                coroutine.resume(BookCoroutine)
+
+            end
+
+        end
+
+        if OrionLib.Flags["FigureToggle"].Value == true then
+
+            if LatestRoom.Value == 50 then
+
+                coroutine.resume(EntityCoroutine)
+
+            end
+
+        end
+
+    end)
+
+    workspace.ChildAdded:Connect(function(inst)
+
+        if inst.Name == "RushMoving" and OrionLib.Flags["MobToggle"].Value == true then
+
+            if OrionLib.Flags["AvoidRushToggle"].Value == true then
+
+                OrionLib:MakeNotification({
+
+                    Name = "小北",
+
+                    Content = "躲避Rush中请稍等",
+
+                    Time = 5
+
+                })
+
+                local OldPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+                local con = game:GetService("RunService").Heartbeat:Connect(function()
+
+                    game.Players.LocalPlayer.Character:MoveTo(OldPos + Vector3.new(0,20,0))
+
+                end)
+
+                
+
+                inst.Destroying:Wait()
+
+                con:Disconnect()
+
+                game.Players.LocalPlayer.Character:MoveTo(OldPos)
+
+            else
+
+                OrionLib:MakeNotification({
+
+                    Name = "小北",
+
+                    Content = "Rush已刷新",
+
+                    Time = 5
+
+                })
+
+            end
+
+        elseif inst.Name == "AmbushMoving" and OrionLib.Flags["MobToggle"].Value == true then
+
+            if OrionLib.Flags["AvoidRushToggle"].Value == true then
+
+                OrionLib:MakeNotification({
+
+                    Name = "小北",
+
+                    Content = "躲避Ambush请稍等",
+
+                    Time = 5
+
+                })
+
+                local OldPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+                local con = game:GetService("RunService").Heartbeat:Connect(function()
+
+                    game.Players.LocalPlayer.Character:MoveTo(OldPos + Vector3.new(0,20,0))
+
+                end)
+
+                
+
+                inst.Destroying:Wait()
+
+                con:Disconnect()
+
+                
+
+                game.Players.LocalPlayer.Character:MoveTo(OldPos)
+
+            else
+
+                OrionLib:MakeNotification({
+
+                    Name = "小北",
+
+                    Content = "Ambush已经刷新",
+
+                    Time = 5
+
+                })
+
+            end
+
+        end
+
+    end)
+
+end)
+
+Tab:AddButton({
+
+	Name = "亮度+10",
+
+	Callback = function()
+
+     loadstring(game:HttpGet('https://pastebin.com/raw/CbRsLfts'))() 
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "Doors追踪",
+
+	Icon = "rbxassetid://7f080112",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddLabel("玩家功能：") 
+
+local CF = CFrame.new
+
+local LatestRoom = game:GetService("ReplicatedStorage").GameData.LatestRoom
+
+local ChaseStart = game:GetService("ReplicatedStorage").GameData.ChaseStart
+
+local KeyChams = {}
+
+Tab:AddToggle({
+
+	Name = "钥匙透视",
+
+	Default = false,
+
+    Flag = "KeyToggle",
+
+    Save = true,
+
+	Callback = function(Value)
+
+		for i,v in pairs(KeyChams) do
+
+            v.Enabled = Value
+
+        end
+
+	end    
+
+})
+
+local function ApplyKeyChams(inst)
+
+    wait()
+
+    local Cham = Instance.new("Highlight")
+
+    Cham.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+    Cham.FillColor = Color3.new(0.980392, 0.670588, 0)
+
+    Cham.FillTransparency = 0.5
+
+    Cham.OutlineColor = Color3.new(0.792156, 0.792156, 0.792156)
+
+    Cham.Parent = game:GetService("CoreGui")
+
+    Cham.Adornee = inst
+
+    Cham.Enabled = OrionLib.Flags["KeyToggle"].Value
+
+    Cham.RobloxLocked = true
+
+    return Cham
+
+end
+
+local KeyCoroutine = coroutine.create(function()
+
+    workspace.CurrentRooms.DescendantAdded:Connect(function(inst)
+
+        if inst.Name == "KeyObtain" then
+
+            table.insert(KeyChams,ApplyKeyChams(inst))
+
+        end
+
+    end)
+
+end)
+
+for i,v in ipairs(workspace:GetDescendants()) do
+
+    if v.Name == "KeyObtain" then
+
+        table.insert(KeyChams,ApplyKeyChams(v))
+
+    end
+
+end
+
+coroutine.resume(KeyCoroutine)
+
+local BookChams = {}
+
+Tab:AddToggle({
+
+	Name = "书/断路器 透视",
+
+	Default = false,
+
+    Flag = "BookToggle",
+
+    Save = true,
+
+	Callback = function(Value)
+
+		for i,v in pairs(BookChams) do
+
+            v.Enabled = Value
+
+        end
+
+	end    
+
+})
+
+local FigureChams = {}
+
+Tab:AddToggle({
+
+	Name = "Figure透视",
+
+	Default = false,
+
+    Flag = "FigureToggle",
+
+    Save = true,
+
+    Callback = function(Value)
+
+        for i,v in pairs(FigureChams) do
+
+            v.Enabled = Value
+
+        end
+
+    end
+
+})
+
+local function ApplyBookChams(inst)
+
+    if inst:IsDescendantOf(game:GetService("Workspace").CurrentRooms:FindFirstChild("50")) and game:GetService("ReplicatedStorage").GameData.LatestRoom.Value == 50 then
+
+        wait()
+
+        local Cham = Instance.new("Highlight")
+
+        Cham.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+        Cham.FillColor = Color3.new(0, 1, 0.749019)
+
+        Cham.FillTransparency = 0.5
+
+        Cham.OutlineColor = Color3.new(0.792156, 0.792156, 0.792156)
+
+        Cham.Parent = game:GetService("CoreGui")
+
+        Cham.Enabled = OrionLib.Flags["BookToggle"].Value
+
+        Cham.Adornee = inst
+
+        Cham.RobloxLocked = true
+
+        return Cham
+
+    end
+
+end
+
+local function ApplyEntityChams(inst)
+
+    wait()
+
+    local Cham = Instance.new("Highlight")
+
+    Cham.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+    Cham.FillColor = Color3.new(1, 0, 0)
+
+    Cham.FillTransparency = 0.5
+
+    Cham.OutlineColor = Color3.new(0.792156, 0.792156, 0.792156)
+
+    Cham.Parent = game:GetService("CoreGui")
+
+    Cham.Enabled = OrionLib.Flags["FigureToggle"].Value
+
+    Cham.Adornee = inst
+
+    Cham.RobloxLocked = true
+
+    return Cham
+
+end
+
+local BookCoroutine = coroutine.create(function()
+
+    task.wait(1)
+
+    for i,v in pairs(game:GetService("Workspace").CurrentRooms["50"].Assets:GetDescendants()) do
+
+        if v.Name == "LiveHintBook" then
+
+            table.insert(BookChams,ApplyBookChams(v))
+
+        end
+
+    end
+
+end)
+
+local EntityCoroutine = coroutine.create(function()
+
+    local Entity = game:GetService("Workspace").CurrentRooms["50"].FigureSetup:WaitForChild("FigureRagdoll",5)
+
+    Entity:WaitForChild("Torso",2.5)
+
+    table.insert(FigureChams,ApplyEntityChams(Entity))
+
+end)
+
+local Tab = Window:MakeTab({
+
+	Name = "Doors物品获取",
+
+	Icon = "rbxassetid://10483855826",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddLabel("游戏内的：") 
+
+Tab:AddButton({
+
+	Name = "乱码十字架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/PiotrekMineRoblox/Bumble-crucifix/main/Bumble-crucifix"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "万圣节十字架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/Mye123/MyeWareHub/main/Halloween%20Crucifix"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "圣诞节十字架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/PiotrekMineRoblox/Christmas-Crucifix/main/Christmas%20crucifix.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "Figure十字架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBloxYT/ok/main/Okay"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "剪刀",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/MrNeRD0/Doors-Hack/main/shears_done.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "骷髅钥匙",
+
+	Callback = function()
+
+     local item = game:GetObjects("rbxassetid://11697889137")[1]item.Parent = game.Players.LocalPlayer.Backpack
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "十字架",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/cbhlyy/lyycbh/main/shizizhen"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "吸铁石",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/MrNeRD0/Doors-Hack/main/MagnetByNerd.lua"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "激光枪",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/K0t1n/Public/main/Laser%20Gun"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "手电筒",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/K0t1n/Public/main/Normal%20Flashlight"))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "Doors更多功能",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+local Section = Tab:AddSection({
+
+	Name = "DOORSUI与实体调试"
+
+})
+
+local EnabledEntities={
+
+    EnabledScreech=false,
+
+    EnabledHalt=false,
+
+    EnabledGlitch=false,
+
+}
+
+Tab:AddToggle({
+
+    Name = "无视 Screech",
+
+	CurrentValue = false,
+
+	Flag = "IgnoreScreech",
+
+	Callback = function(Value)
+
+        EnabledEntities.EnabledScreech = Value
+
+	end,
+
+})
+
+Tab:AddToggle({
+
+    Name = "无视 Glitch",
+
+	CurrentValue = false,
+
+	Flag = "IgnoreGlitch",
+
+	Callback = function(Value)
+
+        EnabledEntities.EnabledGlitch = Value
+
+	end,
+
+})
+
+Tab:AddToggle({
+
+    Name = "无视 Halt",
+
+	CurrentValue = false,
+
+	Flag = "IgnoreHalt",
+
+	Callback = function(Value)
+
+        EnabledEntities.EnabledHalt = Value
+
+	end,
+
+})
+
+workspace.Camera.ChildAdded:Connect(function(c)
+
+    if c.Name == "Screech" then
+
+        wait(0.1)
+
+        if EnabledEntities.EnabledScreech then
+
+            removeDebris(c, 0)
+
+        end
+
+    end
+
+    if c.Name == "Shade" then
+
+        wait(.1)
+
+        if EnabledEntities.EnabledHalt then
+
+            removeDebris(c, 0)
+
+        end
+
+    end
+
+end)
+
+workspace.CurrentRooms.ChildAdded:Connect(function()
+
+    if EnabledEntities.EnabledGlitch then
+
+        local currentRoom=game.Players.LocalPlayer:GetAttribute("CurrentRoom")
+
+        local roomAmt=#workspace.CurrentRooms:GetChildren()
+
+        local lastRoom=game.ReplicatedStorage.GameData.LatestRoom.Value
+
+    
+
+        if roomAmt>=4 and currentRoom<lastRoom-3 then
+
+            game.Players.LocalPlayer.Character:PivotTo(CFrame.new(lastRoom.RoomStart.Position))
+
+        end    
+
+    end
+
+end)
+
+local Section = Tab:AddSection({
+
+	Name = "DOORSUI调试"
+
+})
+
+Tab:AddTextbox({
+
+	Name = "设置金币数量",
+
+	PlaceholderText = game.Players.LocalPlayer.PlayerGui.PermUI.Topbar.Knobs.Text,
+
+	RemoveTextAfterFocusLost = false,
+
+	Callback = function(Text)
+
+        require(game.ReplicatedStorage.ReplicaDataModule).event.Knobs:Fire(tonumber(Text))
+
+	end,
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "Doors超级功能",
+
+	Icon = "rbxassetid://10483855826",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddLabel("玩家功能：") 
+
+Tab:AddButton({
+
+	Name = "高频穿墙",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://github.com/DXuwu/OK/raw/main/clip"))()
+
+	end
+
+})
+
+Tab:AddButton({
+
+	Name = "DX",
+
+	Callback = function()
+
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/DXuwu/replicator-lol/main/dor.lua"))()
+
+	end
+
+})
+
+local Tab = Window:MakeTab({
+
+	Name = "信息",
+
+	Icon = "rbxassetid://10483855826",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddLabel("作者：") 
+
+Tab:AddButton({
+
+	Name = "复制作者快手号",
+
+	Callback = function()
+
+     setclipboard("xxxxxxxx6666kkkk")
+
+  	end
+
+})的
